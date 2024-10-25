@@ -56,18 +56,61 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
+//Funcion cambiar operador del boton
     fun changeOperator(b:View){
         //convertir View a Boton
         val button:Button = b as Button
 
-        when(button.text){
+        if(button.text.toString().trim()=="÷"){
 
-            "+"-> OperacionAc = button.toString()
-            "-"-> OperacionAc = "+"
+            OperacionAc = "/"
+        }else if(button.text.toString().trim()=="*"){
+
+            OperacionAc = "*"
+
+        }else{
+
+            OperacionAc = button.toString().toString().trim()
+
+        }
+
+
+    }
+
+    fun Calculate(b: View){
+
+        if(Double.NaN!==primerNum){
+
+            secondNum = tvTemp.text.toString().toDouble()
+            tvTemp.text=""
+
+            when(OperacionAc){
+                "+"-> primerNum = (primerNum+secondNum)
+                "-"-> primerNum = (primerNum-secondNum)
+                "*"-> primerNum = (primerNum*secondNum)
+                "/"-> primerNum = (primerNum/secondNum)
+                "%"-> primerNum = (primerNum%secondNum)
+            }
+
+        }else{
+
+           primerNum = tvTemp.text.toString().toDouble()
 
 
         }
+
+
+    }
+
+    fun SelectNumber(b: View){
+
+        val boton:Button = b as Button
+        if(tvTemp.text.toString()=="0"){
+
+            tvTemp.text=""
+
+        }
+        tvTemp.text = tvTemp.text.toString() + boton.text.toString()
 
 
     }
