@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:padding="5dp"
-        android:text="0"
+        android:text=""
         android:textAlignment="textEnd"
         android:textColor="#787878"
         android:textSize="34sp" />
@@ -25,7 +25,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:padding="5dp"
-        android:text="0"
         android:textAlignment="textEnd"
         android:textSize="60sp" />
 

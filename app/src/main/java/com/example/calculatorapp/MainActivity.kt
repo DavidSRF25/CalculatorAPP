@@ -53,11 +53,15 @@ class MainActivity : AppCompatActivity() {
             tvTemp = findViewById(R.id.tvTemp)
             result = findViewById(R.id.result)
 
+            tvTemp.text="0"
+
 
     }
 
 //Funcion cambiar operador del boton
     fun changeOperator(b:View){
+
+        Calculate()
         //convertir View a Boton
         val button:Button = b as Button
 
@@ -70,16 +74,17 @@ class MainActivity : AppCompatActivity() {
 
         }else{
 
-            OperacionAc = button.toString().toString().trim()
+            OperacionAc = button.text.toString().trim()
 
         }
-
+            result.text = formatDecimal.format(primerNum) + OperacionAc
+            tvTemp.text = ""
 
     }
 
-    fun Calculate(b: View){
+    fun Calculate(){
 
-        if(Double.NaN!==primerNum){
+        if(primerNum.toString()!="NaN"){
 
             secondNum = tvTemp.text.toString().toDouble()
             tvTemp.text=""
@@ -104,12 +109,9 @@ class MainActivity : AppCompatActivity() {
 
     fun SelectNumber(b: View){
 
+        tvTemp.text=""
         val boton:Button = b as Button
-        if(tvTemp.text.toString()=="0"){
 
-            tvTemp.text=""
-
-        }
         tvTemp.text = tvTemp.text.toString() + boton.text.toString()
 
 
